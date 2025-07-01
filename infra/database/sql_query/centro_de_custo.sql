@@ -1,0 +1,6 @@
+/*Centros de custo*/
+SELECT 
+CTT_CUSTO,
+CTT_DESC01
+FROM CTT010
+	WHERE D_E_L_E_T_ = ''

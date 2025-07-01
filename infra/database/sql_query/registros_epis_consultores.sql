@@ -1,0 +1,2 @@
+SELECT * FROM vw_funcepi
+--WHERE DATA_ENTREGA >= '2023-11-01'

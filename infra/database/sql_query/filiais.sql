@@ -1,0 +1,6 @@
+--**filiais**--
+SELECT
+	TRIM(M0_CODFIL) FILIAL,
+	TRIM(M0_CIDENT) CIDADE
+FROM SYS_COMPANY (nolock)
+WHERE D_E_L_E_T_ = '';
