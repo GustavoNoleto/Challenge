@@ -63,8 +63,8 @@ class OverviewScore():
             .alias("Desempenho"))
         
         consultores_df = consultores_df.join(assertividade_score, on="CODPRO", how="left")
-        consultores_df = consultores_df.join(lucratividade_score, on="CODPRO", how="left")
-        consultores_df = consultores_df.join(desempenho_score, on=["CODPRO", "DATA"], how="left")
+        consultores_df = consultores_df.join(desempenho_score, on="CODPRO", how="left")
+        consultores_df = consultores_df.join(lucratividade_score, on=["CODPRO","DATA"], how="left")
         
         overview_detalhado = consultores_df.select("CODPRO","DATA","Assertividade",
                                                "Lucratividade", "Desempenho")
@@ -109,6 +109,6 @@ class OverviewScore():
     def get_overview_atributos_mom():
         overview_detalhado = OverviewScore.get_overview_detalhado_mom()
         
-        overview_atributos = overview_detalhado.melt(id_vars=["CODPRO"], variable_name="ATTRIBUTE", value_name="SCORE")
+        overview_atributos = overview_detalhado.melt(id_vars=["CODPRO","DATA"], variable_name="ATTRIBUTE", value_name="SCORE")
         
         return overview_atributos

@@ -48,4 +48,14 @@ def get_overview_atributos():
     response = JSONResponse(content=overview_atributos)
     
     return response
+
+@router.get('/overview_atributos_mom')
+def get_overview_atributos_mom():
+    overview_atributos = OverviewScore.get_overview_atributos_mom()
+    
+    overview_atributos = list(overview_atributos.iter_rows(named=True))
+    response = JSONResponse(content=overview_atributos)
+    
+    return response
+    
     
