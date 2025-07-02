@@ -50,9 +50,9 @@ class OverviewScore():
             .round(2)
             .alias("Assertividade"))
         
-        lucratividade_score = lucratividade_score.with_columns(pl.col(["SCORE","DATA"]).fill_null(pl.lit(0)))
+        lucratividade_score = lucratividade_score.with_columns(pl.col(["LUCRATIVIDADE_SCORE","DATA"]).fill_null(pl.lit(0)))
         lucratividade_score = lucratividade_score.with_columns(
-            (pl.col("SCORE") * 0.3)
+            (pl.col("LUCRATIVIDADE_SCORE") * 0.3)
             .round(2)
             .alias("Lucratividade"))
         

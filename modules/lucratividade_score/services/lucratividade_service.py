@@ -143,14 +143,14 @@ class CustosService():
             pl.col("*"),
             ((pl.col("FATOR_LUCRATIVIDADE") - 1.2) / (3 - 1.2) * 1000)
             .clip(0, 1000)
-            .round(2).alias("SCORE")
+            .round(2).alias("LUCRATIVIDADE_SCORE")
         )       
                 
         lucratividade_df = lucratividade_df.with_columns(pl.col("DATA").cast(pl.String))
         
         lucratividade_df = lucratividade_df.select("FILIAL", "CODPRO", "DATA",
                                                    "CUSTOS_ENCARGOS_MENSAL", "VALOR_COMISSOES",
-                                                   "CUSTO_CONSULTOR", "FATURAMENTO", "FATOR_LUCRATIVIDADE", "SCORE")
+                                                   "CUSTO_CONSULTOR", "FATURAMENTO", "FATOR_LUCRATIVIDADE", "LUCRATIVIDADE_SCORE")
         
         return lucratividade_df
     
